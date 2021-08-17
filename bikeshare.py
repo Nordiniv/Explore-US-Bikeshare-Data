@@ -176,8 +176,14 @@ def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
-        print(df.iloc[:, 1:-3])
-
+        view_data = input('\nWould you like to view first 5 rows of individual trip data? Enter yes or no\n').lower()
+        if view_data == 'yes':
+            i = 0
+            print(df[i:i+5].iloc[:, 1:-3])
+            while view_data == 'yes':
+                view_data = input('\nDo you want to see the next 5 rows of data?\n').lower()
+                i += 5
+                print(df[i:i+5].iloc[:, 1:-3])
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
