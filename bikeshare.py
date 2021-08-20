@@ -162,14 +162,15 @@ def user_stats(df, city):
         user_genders = df['Gender'].value_counts()
         print(user_genders)
 
-    # TO DO: Display earliest, most recent, and most common year of birth
-    earliest = df['Birth Year'].min()
-    recent = df['Birth Year'].max()
-    common = df['Birth Year'].mode()[0]
+    if city != 'washington.csv':
+        # TO DO: Display earliest, most recent, and most common year of birth
+        earliest = df['Birth Year'].min()
+        recent = df['Birth Year'].max()
+        common = df['Birth Year'].mode()[0]
 
-    print("Earliest year of birth : {}, most recent : {}, and most common {}.".format(earliest, recent, common))
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+        print("Earliest year of birth : {}, most recent : {}, and most common {}.".format(earliest, recent, common))
+        print("\nThis took %s seconds." % (time.time() - start_time))
+        print('-' * 40)
 
 
 def main():
